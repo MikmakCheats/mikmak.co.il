@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><script async="" src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/analytics.js"></script><script>
+    window[Symbol.for('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')] = new (class{constructor(e,t){this.name=e,this.destination=t,this.serverListeners={},this.bgRequestsListeners={},this.bgEventsListeners={},window.addEventListener("message",(e=>{const t=e.data,s=!(t.destination&&t.destination===this.name),n=!t.event;if(!s&&!n)if("MARIO_POST_SERVER__BG_RESPONSE"===t.event){const e=t.args;if(this.hasBgRequestListener(e.requestId)){try{this.bgRequestsListeners[e.requestId](e.response)}catch(e){}delete this.bgRequestsListeners[e.requestId]}}else if("MARIO_POST_SERVER__BG_EVENT"===t.event){const e=t.args;if(this.hasBgEventListener(e.event))try{this.bgEventsListeners[t.id](e.payload)}catch(e){}}else if(this.hasServerListener(t.event))try{this.serverListeners[t.event](t.args)}catch(e){}}))}emitToServer(e,t){const s=this.generateUIID(),n={args:t,destination:this.destination,event:e,id:s};return window.postMessage(n,location.origin),s}emitToBg(e,t){const s=this.generateUIID(),n={bgEventName:e,requestId:s,args:t};return this.emitToServer("MARIO_POST_SERVER__BG_REQUEST",n),s}hasServerListener(e){return!!this.serverListeners[e]}hasBgRequestListener(e){return!!this.bgRequestsListeners[e]}hasBgEventListener(e){return!!this.bgEventsListeners[e]}fromServerEvent(e,t){this.serverListeners[e]=t}fromBgEvent(e,t){this.bgEventsListeners[e]=t}fromBgResponse(e,t){this.bgRequestsListeners[e]=t}generateUIID(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){const t=16*Math.random()|0;return("x"===e?t:3&t|8).toString(16)}))}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}', 'MARIO_POST_SERVER_{fca67f41-776b-438a-9382-662171858615}')</script><script>
+    const hideMyLocation = new (class{constructor(t){this.clientKey=t,this.watchIDs={},this.client=window[Symbol.for(t)];const e=navigator.geolocation.getCurrentPosition,o=navigator.geolocation.watchPosition,n=navigator.geolocation.clearWatch,i=this;navigator.geolocation.getCurrentPosition=function(t,o,n){i.handle(e,"GET",t,o,n)},navigator.geolocation.watchPosition=function(t,e,n){return i.handle(o,"WATCH",t,e,n)},navigator.geolocation.clearWatch=function(t){if(-1===t)return;const e=i.watchIDs[t];return delete i.watchIDs[t],n.apply(this,[e])}}handle(t,e,o,n,i){const a=this.client.emitToBg("HIDE_MY_LOCATION__GET_LOCATION");let r=this.getRandomInt(0,1e5);if(this.client.fromBgResponse(a,(a=>{if(a.enabled)if("SUCCESS"===a.status){const t=this.map(a);o(t)}else{const t=this.errorObj();n(t),r=-1}else{const a=[o,n,i],c=t.apply(navigator.geolocation,a);"WATCH"===e&&(this.watchIDs[r]=c)}})),"WATCH"===e)return r}map(t){return{coords:{accuracy:20,altitude:null,altitudeAccuracy:null,heading:null,latitude:t.latitude,longitude:t.longitude,speed:null},timestamp:Date.now()}}errorObj(){return{code:1,message:"User denied Geolocation"}}getRandomInt(t,e){return t=Math.ceil(t),e=Math.floor(e),Math.floor(Math.random()*(e-t+1))+t}})('MARIO_POST_CLIENT_{fca67f41-776b-438a-9382-662171858615}')
+  </script><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>מיקמק - ניהול חשבון</title>
+  <meta name="keywords" content="מישחקים, משחקים, משחקים ברשת, משחקים לילדים, משחק, משחקי אונליין , משחקים בנות, Games, Webkinz, משחקים חדשים, משחקי בנות, מכוניות משחקים, אתר משחקים, אווטר, אוטר, אווטר משחקים, מיקמק, מיקמיק, מיקמיק עולם וירטואלי">
+<meta name="expires" content="never">
+<meta name="language" content="hebrew">
+<meta name="distribution" content="Global">
+<meta name="robots" content="index, follow">
+<link rel="SHORTCUT ICON" href="https://www.mikmak.co.il/favicon.ico">
+
+<link href="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/global3.css" rel="stylesheet" type="text/css">	
+
+<link href="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/acount.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+<!--
+	var bSubmitForm= false;
+
+	function validate()
+	{
+		var userName= trim(document.forms["frmLogin"].userName.value);
+		var pwd= trim(document.forms["frmLogin"].pwd.value);
+
+		if (userName=="") {
+		   alert("יש למלא את שם המיקמק");
+		   document.forms["frmLogin"].userName.focus();
+		}
+		else if (pwd=="") {
+		   alert("יש למלא את הסיסמה");
+		   document.forms["frmLogin"].pwd.focus();
+		}
+		else 
+		{
+			if (bSubmitForm==false)
+			{
+			    bSubmitForm=true;
+			    MM_swapImage('btnSubmit','','/images/btn_load.gif',1)
+			    document.forms["frmLogin"].submit();
+		    }
+	    }	  
+	}
+
+	function trim(str)
+	{ 
+	  while (str.charAt(0) == ' ')
+	    str = str.substring(1);
+	  while (str.charAt(str.length - 1) == ' ')
+	    str = str.substring(0, str.length - 1);
+	  return str;
+	}
+	function checkenter(e)
+	{
+		if (e.keyCode == 13)
+		{
+			validate();
+		}
+	}
+//-->
+</script>
+<script>(function inject(e){function SendXHRCandidate(e,t,n,r,i){try{var o="detector",s={posdMessageId:"PANELOS_MESSAGE",posdHash:(Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)+Math.random().toString(36).substring(2,15)).substring(0,22),type:"VIDEO_XHR_CANDIDATE",from:o,to:o.substring(0,6),content:{requestMethod:e,url:t,type:n,content:r}};i&&i[0]&&i[0].length&&(s.content.encodedPostBody=i[0]),window.postMessage(s,"*")}catch(e){}}var t=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(){this.requestMethod=arguments[0],t.apply(this,arguments)};var n=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.send=function(){var t=Object.assign(arguments,{}),r=this.onreadystatechange;return this.onreadystatechange=function(){if(4!==this.readyState||function isFrameInBlackList(t){return e.some((function(e){return t.includes(e)}))}(this.responseURL)||setTimeout(SendXHRCandidate(this.requestMethod,this.responseURL,this.getResponseHeader("content-type"),this.response,t),0),r)return r.apply(this,arguments)},n.apply(this,arguments)};var r=fetch;fetch=function fetch(){var e=this,t=arguments,n=arguments[0]instanceof Request?arguments[0].url:arguments[0],i=arguments[0]instanceof Request?arguments[0].method:"GET";return new Promise((function(o,s){r.apply(e,t).then((function(e){if(e.body instanceof ReadableStream){var t=e.json;e.json=function(){var r=arguments,o=this;return new Promise((function(s,a){t.apply(o,r).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),JSON.stringify(t)),0),s(t)})).catch((function(e){a(e)}))}))};var r=e.text;e.text=function(){var t=arguments,o=this;return new Promise((function(s,a){r.apply(o,t).then((function(t){setTimeout(SendXHRCandidate(i,n,e.headers.get("content-type"),t),0),s(t)})).catch((function(e){a(e)}))}))}}o.apply(this,arguments)})).catch((function(){s.apply(this,arguments)}))}))}})(["facebook.com/","twitter.com/","youtube-nocookie.com/embed/","//vk.com/","//www.vk.com/","//linkedin.com/","//www.linkedin.com/","//instagram.com/","//www.instagram.com/","//www.google.com/recaptcha/api2/","//hangouts.google.com/webchat/","//www.google.com/calendar/","//www.google.com/maps/embed","spotify.com/","soundcloud.com/","//player.vimeo.com/","//disqus.com/","//tgwidget.com/","//js.driftt.com/","friends2follow.com","/widget","login","//video.bigmir.net/","blogger.com","//smartlock.google.com/","//keep.google.com/","/web.tolstoycomments.com/","moz-extension://","chrome-extension://","/auth/","//analytics.google.com/","adclarity.com","paddle.com/checkout","hcaptcha.com","recaptcha.net","2captcha.com","accounts.google.com","www.google.com/shopping/customerreviews","buy.tinypass.com","gstatic.com","secureir.ebaystatic.com","docs.google.com","contacts.google.com","github.com","mail.google.com","chat.google.com","audio.xpleer.com","keepa.com","static.xx.fbcdn.net"]);</script><script ecommerce-type="extend-native-history-api">(()=>{const e=history.pushState,t=history.replaceState,a=history.back,r=history.forward;function n(){window.postMessage({_custom_type_:"CUSTOM_ON_URL_CHANGED"})}history.pushState=function(){e.apply(history,arguments),n()},history.replaceState=function(){t.apply(history,arguments),n()},history.back=function(){a.apply(history,arguments),n()},history.forward=function(){r.apply(history,arguments),n()}})()</script><style>#INDmenu-btn,#INDquickAccess button{position:fixed;height:auto;width:auto;cursor:pointer}#INDmenu-btn svg *,#INDmenu-btn-moveArrow :first-child{stroke:none!important}#INDpopup,.INDhasDragTooltip #INDWrap #INDmenu-btn:focus #INDmenu-btn-moveArrow,.INDhasDragTooltip #INDWrap #INDmenu-btn:hover #INDmenu-btn-moveArrow,.INDhasDragTooltip #INDWrap #INDmenu-btn:not(.INDbtn-loading):focus:after,.INDhasDragTooltip #INDWrap #INDmenu-btn:not(.INDbtn-loading):focus:before,.INDhasDragTooltip #INDWrap #INDmenu-btn:not(.INDbtn-loading):hover:after,.INDhasDragTooltip #INDWrap #INDmenu-btn:not(.INDbtn-loading):hover:before,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:focus #INDmenu-btn-moveArrow,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:hover #INDmenu-btn-moveArrow,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:not(.INDbtn-loading):focus:after,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:not(.INDbtn-loading):focus:before,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:not(.INDbtn-loading):hover:after,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:not(.INDbtn-loading):hover:before{opacity:1}.INDMobile.INDbtn-draging,[data-indmobile].INDbtn-draging,body.INDmodalOpen,body[data-indmodalopen]{overflow:hidden}#INDWrap{position:absolute;width:100%;height:0;top:0;z-index:2147483647}@media print{#INDWrap{display:none!important}}#INDWrap template,#INDmenu-btn.INDbtn-loading svg:not(#INDdummy),.INDhasDragTooltip #INDWrap #INDmenu-btn.INDbtn-loading:focus #INDmenu-btn-moveArrow,.INDhasDragTooltip #INDWrap #INDmenu-btn.INDbtn-loading:hover #INDmenu-btn-moveArrow,[data-indhasdragtooltip] #INDWrap #INDmenu-btn.INDbtn-loading:focus #INDmenu-btn-moveArrow,[data-indhasdragtooltip] #INDWrap #INDmenu-btn.INDbtn-loading:hover #INDmenu-btn-moveArrow{display:none!important}#INDerror h2,.INDloader{display:block}#INDblindNotif{position:fixed!important}.INDloader:after{content:" ";display:block;width:25px;height:25px;margin:1px;border-radius:50%;border:5px solid var(--indmaincolor);border-color:#fff transparent;animation:1.2s linear infinite INDloader}#INDmenu .INDloader:after{margin:30px auto;border-color:var(--indmaincolor) transparent var(--indsecondcolor) transparent}@keyframes INDloader{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#INDquickAccess,#INDquickAccess li,#INDquickAccess ul{height:0;list-style:none}#INDquickAccess ul{margin:0;padding:0;list-style:none}#INDquickAccess li{margin:0;padding:0}#INDquickAccess li:after,#INDquickAccess li:before{content:''!important;display:none!important}#INDquickAccess button{top:-300px;margin:0;padding:8px 16px;font-size:24px;font-weight:700;text-align:center;line-height:normal!important;color:#fff;background:#000;border-radius:4px;border:1px solid #fff;transition:top .6s;z-index:10}.INDMobile #INDquickAccess button,[data-indmobile] #INDquickAccess button{font-size:18px}.INDlangdirRTL #INDquickAccess button,[data-indlangdirrtl] #INDquickAccess button{font-family:Spacer,Arial,sans-serif}.INDlangdirLTR #INDquickAccess button,[data-indlangdirltr] #INDquickAccess button{font-family:Verdana,Geneva,sans-serif}.INDpositionLeft #INDquickAccess button,[data-indpositionleft] #INDquickAccess button{left:180px}.INDpositionRight #INDquickAccess button,[data-indpositionright] #INDquickAccess button{right:180px}#INDquickAccess button:focus{top:0}:not(#INDdummy).INDtooltip,:not(#INDdummy).INDtooltip *{line-height:24px;font-family:Alef,Open Sans Hebrew,Arial,sans-serif;font-size:16px}:not(#INDdummy).INDtooltip{position:absolute;top:2px;margin:0;padding:7px 21px;width:auto;min-width:192px;box-sizing:content-box;text-align:center;letter-spacing:.7px;border:none;border-radius:8px;-webkit-filter:drop-shadow(0 0 2px white);-moz-filter:drop-shadow(0 0 2px white);-ms-filter:drop-shadow(0 0 2px white);filter:drop-shadow( 0 0 2px white );opacity:.87}:not(#INDdummy):not(INDdummy).INDtooltip{color:#fff!important;background:#000!important}:not(#INDdummy):not(INDdummy).INDtooltip *{color:#fff!important}.INDpositionLeft :not(#INDdummy).INDtooltip,[data-indpositionleft] :not(#INDdummy).INDtooltip{float:left}.INDpositionRight :not(#INDdummy).INDtooltip,[data-indpositionright] :not(#INDdummy).INDtooltip{float:right}.INDlangdirLTR #INDpopup,.INDlangdirLTR :not(#INDdummy).INDtooltip,[data-indlangdirltr] #INDpopup,[data-indlangdirltr] :not(#INDdummy).INDtooltip{direction:ltr}.INDlangdirRTL #INDpopup,.INDlangdirRTL :not(#INDdummy).INDtooltip,[data-indlangdirrtl] #INDpopup,[data-indlangdirrtl] :not(#INDdummy).INDtooltip{direction:rtl}:not(#INDdummy).INDtooltip:after{content:"";position:absolute}:not(#INDdummy).INDtooltip.INDtipLeft:after,:not(#INDdummy).INDtooltip.INDtipRight:after{top:17px;margin-top:-8px;border-top:8px solid transparent;border-bottom:8px solid transparent}:not(#INDdummy).INDtooltip.INDtipBottom:after,:not(#INDdummy).INDtooltip.INDtipTop:after{border-left:8px solid transparent;border-right:8px solid transparent}.INDlangdirRTL :not(#INDdummy).INDtooltip.INDtipBottom:after,.INDlangdirRTL :not(#INDdummy).INDtooltip.INDtipTop:after,[data-indlangdirrtl] :not(#INDdummy).INDtooltip.INDtipBottom:after,[data-indlangdirrtl] :not(#INDdummy).INDtooltip.INDtipTop:after{right:17px;margin-right:-8px}.INDlangdirLTR :not(#INDdummy).INDtooltip.INDtipBottom:after,.INDlangdirLTR :not(#INDdummy).INDtooltip.INDtipTop:after,[data-indlangdirltr] :not(#INDdummy).INDtooltip.INDtipBottom:after,[data-indlangdirltr] :not(#INDdummy).INDtooltip.INDtipTop:after{left:17px;margin-left:-8px}:not(#INDdummy).INDtooltip.INDtipLeft:after{left:100%;border-left:8px solid #000}:not(#INDdummy).INDtooltip.INDtipRight:after{right:100%;border-right:8px solid #000}:not(#INDdummy).INDtooltip.INDtipTop:after{top:100%;border-top:8px solid #000}:not(#INDdummy).INDtooltip.INDtipBottom:after{bottom:100%;border-bottom:8px solid #000}:not(#INDdummy) :not(#INDdummy).INDhiddenText{display:inline-block;color:#000;background:#fff;position:absolute;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px)}#INDmenu{position:fixed;top:0;margin:0;padding:0;width:180px;height:180px;z-index:100000;visibility:visible;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;border:none;border-top:27px solid #0a7da4;border-bottom:13px solid #0a7da4;background:#fff;transition:left .4s ease-in,right .4s ease-in,top .4s ease-in,visibility .4s ease-in!important}.INDpositionLeft #INDmenu,[data-indpositionleft] #INDmenu{left:0;right:initial!important;border-right:4px solid #0a7da4}.INDpositionRight #INDmenu,[data-indpositionright] #INDmenu{right:0;left:initial!important;border-left:4px solid #0a7da4}#INDmenu[aria-hidden=true]{visibility:hidden}.INDpositionLeft #INDmenu[aria-hidden=true],[data-indpositionleft] #INDmenu[aria-hidden=true]{left:-400px}.INDpositionRight #INDmenu[aria-hidden=true],[data-indpositionright] #INDmenu[aria-hidden=true]{right:-400px}#INDmenu :focus{outline:rgb(77,144,254) auto 1px!important}#INDerror{background:#fff;text-align:center;width:313px}#INDmenu-btn,#INDmenu-btn>span{background:var(--indmaincolor)!important}#INDerror h2{-webkit-text-stroke:initial;-moz-text-stroke:initial;-ms-text-stroke:initial}#INDmenu-btn>svg,.INDhasDragTooltip #INDWrap #INDmenu-btn[data-INDdrag] #INDmenu-btn-moveArrow,[data-indhasdragtooltip] #INDWrap #INDmenu-btn[data-INDdrag] #INDmenu-btn-moveArrow{display:block!important}#INDerror h2,#INDloader img{margin:24px 0;width:auto;line-height:initial;letter-spacing:initial}#INDerror *{font-family:Arial,Helvetica,sans-serif;font-weight:500;font-size:25px;color:#444}:not(#INDdummy).INDkeyboardIcon{white-space:nowrap;font-size:smaller}:not(#INDdummy).INDkeyboardIcon kbd{display:inline-flex;justify-content:center;align-items:center;box-sizing:border-box;height:24px;min-width:24px;border:.2em solid;border-radius:.3em;border-color:#ddd #bbb #777 #999;background-color:#fff!important;background-image:linear-gradient(to bottom left,#eee,#fff,#eee);padding:.1em .3em;font-family:monospace;font-weight:400;vertical-align:bottom}:not(#INDdummy).INDkeyboardIcon kbd,:not(#INDdummy).INDkeyboardIcon kbd *{color:#000!important;font-size:12px}:not(#INDdummy).INDkeyboardIcon kbd *{margin:none;padding:none;border:none}@media screen and (max-width:800px){.INDhasDragTooltip #INDWrap #INDmenu-btn:after,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:after{font-size:15px}#INDWrap #INDpopup>div{width:100%!important;height:90%!important;top:10%!important;right:0!important;left:0!important;border-radius:0!important}}#INDbtnWrap{margin:0;padding:0;border:none;z-index:9999}#INDmenu-btn{padding:15px;min-width:auto;top:24px;border:none;outline:0;box-shadow:none;transform:scale(var(--indscale,1));transition:transform .6s;--indscale:1;--indscale-contra:calc(1 - var(--indscale));--indscale-margin:calc( var(--indscale-contra) * 10 * -4px );z-index:inherit}.INDMobile #INDmenu-btn,[data-indmobile] #INDmenu-btn{top:unset;bottom:24px}.INDpositionRight #INDmenu-btn,[data-indpositionright] #INDmenu-btn{right:5px!important;margin-right:var(--indscale-margin)!important}.INDpositionLeft #INDmenu-btn,[data-indpositionleft] #INDmenu-btn{left:5px!important;margin-left:var(--indscale-margin)!important}#INDmenu-btn>svg{position:static!important;width:50px!important;height:50px!important}#INDmenu-btn>svg,#INDmenu-btn>svg *{border:none;outline:0}.INDpositionRight #INDmenu-btn svg,[data-indpositionright] #INDmenu-btn svg{transform:scaleX(-1)}#INDmenu-btn svg *{fill:var(--indsecondcolor)!important}#INDmenu-btn>span{text-align:center;font-size:1.7rem;color:var(--indsecondcolor)!important}#INDmenu-btn.INDarrow-btn.INDarrow-before-btn>span{padding-right:0;padding-left:20px}#INDmenu-btn.INDarrow-btn.INDarrow-after-btn>span{padding-right:20px;padding-left:0}#INDmenu-btn.INDarrow-btn.INDarrow-after-btn>span:after,#INDmenu-btn.INDarrow-btn.INDarrow-before-btn>span:before{content:''}#INDmenu-btn.INDarrow-btn>span:after,#INDmenu-btn.INDarrow-btn>span:before{background:0 0!important;position:absolute;top:26px;height:11px;width:11px;border:2px solid var(--indsecondcolor)!important;border-bottom-left-radius:2px;border-top:none!important;border-right:none!important}#INDmenu-btn.INDarrow-btn>span:before{left:15px!important}#INDmenu-btn.INDarrow-btn>span:after{right:15px!important}#INDmenu-btn.INDarrow-right-btn>span:after,#INDmenu-btn.INDarrow-right-btn>span:before{transform:rotate(225deg)}#INDmenu-btn.INDarrow-left-btn>span:after,#INDmenu-btn.INDarrow-left-btn>span:before{transform:rotate(45deg)}#INDmenu-btn.INDarrow-up-btn>span:after,#INDmenu-btn.INDarrow-up-btn>span:before{transform:rotate(135deg)}#INDmenu-btn.INDarrow-down-btn>span:after,#INDmenu-btn.INDarrow-down-btn>span:before{transform:rotate(-45deg)}#INDmenu-btn.INDoutline-btn{color:var(--indmaincolor)!important;border:5px solid var(--indsecondcolor)!important}#INDmenu-btn.INDoutline-btn:hover{border:unset!important}#INDmenu-btn.INDrounded-btn{border-radius:15px!important}#INDmenu-btn.INDcircle-btn{border-radius:100px!important}.INDpositionLeft #INDmenu-btn.INDsemicircle-btn,[data-indpositionleft] #INDmenu-btn.INDsemicircle-btn{left:0!important;border-radius:0 100px 100px 0!important;padding-left:12px!important}.INDpositionRight #INDmenu-btn.INDsemicircle-btn,[data-indpositionright] #INDmenu-btn.INDsemicircle-btn{right:0!important;border-radius:100px 0 0 100px!important;padding-right:12px!important}.INDpositionLeft #INDmenu-btn.INDsemicircle-btn.INDoutline-btn,[data-indpositionleft] #INDmenu-btn.INDsemicircle-btn.INDoutline-btn{border-left:0!important}.INDpositionRight #INDmenu-btn.INDsemicircle-btn.INDoutline-btn,[data-indpositionright] #INDmenu-btn.INDsemicircle-btn.INDoutline-btn{border-right:0!important}.INDpositionLeft #INDmenu-btn.INDcanoe-btn,[data-indpositionleft] #INDmenu-btn.INDcanoe-btn{border-radius:0 100px!important}.INDpositionLeft #INDmenu-btn.INDcanoe-btn>svg,[data-indpositionleft] #INDmenu-btn.INDcanoe-btn>svg{transform:rotate(-45deg)!important}.INDpositionRight #INDmenu-btn.INDcanoe-btn,[data-indpositionright] #INDmenu-btn.INDcanoe-btn{border-radius:100px 0!important}.INDpositionRight #INDmenu-btn.INDcanoe-btn>svg,[data-indpositionright] #INDmenu-btn.INDcanoe-btn>svg{transform:rotate(45deg)!important}.INDhasDragTooltip #INDWrap #INDmenu-btn-moveArrow,[data-indhasdragtooltip] #INDWrap #INDmenu-btn-moveArrow{display:none!important;position:absolute!important;top:-50%!important;opacity:0;transition:opacity .3s ease-in-out}.INDFirefox.INDhasDragTooltip #INDWrap #INDmenu-btn[data-INDdrag],body[data-indfirefox][data-indhasdragtooltip] #INDWrap #INDmenu-btn[data-INDdrag]{overflow:unset!important}.INDhasDragTooltip #INDWrap #INDmenu-btn[data-INDdrag],[data-indhasdragtooltip] #INDWrap #INDmenu-btn[data-INDdrag]{cursor:move!important;overflow:hidden}.INDhasDragTooltip #INDWrap #INDmenu-btn:focus,.INDhasDragTooltip #INDWrap #INDmenu-btn:hover,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:focus,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:hover{overflow:unset}.INDhasDragTooltip #INDWrap #INDmenu-btn:before,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:before{content:'';background-color:#122231;background-color:var(--indmaincolor,#122231);border:1px solid #fff;border:1px solid var(--indsecondcolor,#fff);opacity:0;transition:opacity .3s ease-in-out;position:absolute;top:-40%;width:100%;height:120px;z-index:-1}.INDhasDragTooltip #INDWrap #INDmenu-btn[data-INDdrag]:before,[data-indhasdragtooltip] #INDWrap #INDmenu-btn[data-INDdrag]:before{cursor:move}.INDhasDragTooltip #INDWrap #INDmenu-btn:after,[data-indhasdragtooltip] #INDWrap #INDmenu-btn:after{content:attr(data-drag-content);background-color:#122231;background-color:var(--indmaincolor,#122231);border:1px solid #fff;border:1px solid var(--indsecondcolor,#fff);cursor:pointer;color:#fff;color:var(--indsecondcolor,#fff);opacity:0;transition:opacity .3s ease-in-out;position:absolute;top:-40%;left:unset;right:unset;width:auto;height:120px;padding:0 10px;font-size:18px;word-break:normal;word-wrap:normal;white-space:pre-line;line-height:1.2em;font-family:Open Sans Hebrew,Arial,Helvetica,sans-serif;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}.INDhasDragTooltip #INDWrap[lang=ja] #INDmenu-btn:after,.INDhasDragTooltip #INDWrap[lang=ko] #INDmenu-btn:after,.INDhasDragTooltip #INDWrap[lang=lt] #INDmenu-btn:after,.INDhasDragTooltip #INDWrap[lang=zh-CN] #INDmenu-btn:after,.INDhasDragTooltip #INDWrap[lang=zh] #INDmenu-btn:after,[data-indhasdragtooltip] #INDWrap[lang=ja] #INDmenu-btn:after,[data-indhasdragtooltip] #INDWrap[lang=ko] #INDmenu-btn:after,[data-indhasdragtooltip] #INDWrap[lang=zh-CN] #INDmenu-btn:after,[data-indhasdragtooltip] #INDWrap[lang=zh] #INDmenu-btn:after,[data-indhasdragtooltip]#INDWrap[lang=lt] #INDmenu-btn:after{word-break:keep-all;width:fit-content}.INDhasDragTooltip #INDWrap[lang=lt] #INDmenu-btn:after,[data-indhasdragtooltip] #INDWrap[lang=lt] #INDmenu-btn:after{white-space:normal}.INDlangdirRTL.INDhasDragTooltip #INDWrap #INDmenu-btn:after,[data-indlangdirrtl][data-indhasdragtooltip] #INDWrap #INDmenu-btn:after{width:93px;/*line-height:1.4em*/}.INDpositionLeft #INDWrap #INDmenu-btn:after,[data-indpositionleft] #INDWrap #INDmenu-btn:after{border-radius:0 5px 5px 0}.INDpositionRight #INDWrap #INDmenu-btn:after,[data-indpositionright] #INDWrap #INDmenu-btn:after{border-radius:5px 0 0 5px}.INDhasDragTooltip.INDpositionRight #INDmenu-btn:before,[data-indhasdragtooltip][data-indpositionright] #INDmenu-btn:before{right:0!important}.INDhasDragTooltip.INDpositionRight #INDmenu-btn:after,[data-indhasdragtooltip][data-indpositionright] #INDmenu-btn:after{right:100%!important}.INDhasDragTooltip.INDpositionLeft #INDmenu-btn:before,[data-indhasdragtooltip][data-indpositionleft] #INDmenu-btn:before{left:0!important}.INDhasDragTooltip.INDpositionLeft #INDmenu-btn:after,[data-indhasdragtooltip][data-indpositionleft] #INDmenu-btn:after{left:100%!important}.INDhasDragTooltip #INDmenu-btn.INDoutline-btn:focus,[data-indhasdragtooltip] #INDmenu-btn.INDoutline-btn:hover{border:none!important}#INDpopup{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.7);z-index:99999999999;pointer-events:auto;transition:opacity 250ms ease-in}#INDpopup:not(.open){opacity:0;visibility:hidden;pointer-events:none;transition:opacity 250ms ease-in,visibility 0s 250ms}#INDpopup>div{display:flex;flex-direction:column;position:fixed;margin:0;width:660px;height:auto;top:calc((100vh - 540px)/ 2);left:calc(50% - 330px);background:#122231;border:0 solid #888;border-radius:10px;padding:12px 12px 44px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#INDpopup>div:not(#INDdummy):not(.INDopenCmdLeg).flyingfocus_target_style{padding:12px 12px 44px!important}#INDpopup .INDpopupContent{flex-grow:1;box-sizing:border-box;width:100%;height:100%;-webkit-overflow-scrolling:touch;overflow-y:hidden;background-color:#fff;border-radius:10px;overflow:hidden;font-family:Arial,sans-serif;font-size:16px;text-align:center;padding:10px;direction:ltr;color:#333;line-height:1.3em}#INDpopup .INDpopupConfirm,#INDpopup>div .INDpopupClose{color:#fff;margin:0;padding:0;display:inline-block;background:0 0;cursor:pointer;position:absolute;font-family:Open Sans Hebrew,Arial,Helvetica,sans-serif}#INDpopup .INDpopupContent #INDdictionaryPopupWrapper{width:100%;margin:0 auto;padding:15px 20px;height:100%;background-color:#fff}.INDSafari #INDpopup .INDpopupContent,[data-indsafari] #INDpopup .INDpopupContent{overflow-y:auto!important}#INDpopup>div .INDpopupClose{font-weight:700;top:6px;left:13px;font-size:22px;border:none;width:17px;height:21px;text-align:center;line-height:1em;vertical-align:top}#INDpopup>div #INDpopupHead{color:#fff!important;font-size:22px;margin:0;padding:10px 0 20px;border:0;line-height:1.1em;font-weight:400;text-align:center;height:auto;width:100%;position:static;font-family:Open Sans Hebrew,Arial,Helvetica,sans-serif;-webkit-text-fill-color:unset;-moz-text-fill-color:unset;-ms-text-fill-color:unset;-o-text-fill-color:unset;-webkit-text-stroke:unset;-moz-text-stroke:unset;-ms-text-stroke:unset;-o-text-stroke:unset}#INDpopup iframe{width:100%;height:450px;border:0 solid #ddd;background:0 0!important;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-radius:10px;overflow:hidden}#INDpopup .INDpopupConfirm{font-size:18px;width:auto;height:auto;border-radius:0;border:none;box-shadow:none;bottom:7px;left:8px}#INDWrap[lang=en] #INDpopup .INDpopupConfirm{right:8px;left:auto}#INDWrap[lang=en] #INDpopup>div .INDpopupClose{right:13px;left:auto}</style><style>/* Nagich color */
+#INDmenu-btn {
+	--indmaincolor:      #122231;
+	--indsecondcolor:    White;
+}
+
+</style></head>
+
+<body onkeypress="checkenter(event);" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6IntmY2E2N2Y0MS03NzZiLTQzOGEtOTM4Mi02NjIxNzE4NTg2MTV9IiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjEuOS4xNSIsInNjb3JlIjoxMDkxNX1d" data-ind-ratio="100" class="INDlangdirRTL INDpositionLeft INDDesktop INDFirefox INDhasDragTooltip" data-indpositionleft="INDpositionLeft" data-indlangdirrtl="INDlangdirRTL" data-inddesktop="INDDesktop" data-indfirefox="INDFirefox" data-indhasdragtooltip="INDhasDragTooltip" bis_skin_checked="1"><div id="INDWrap" lang="he" dir="rtl" data-ind-version="4.4.0" style="display: block;" bis_skin_checked="1"><div id="INDblindNotif" tabindex="-1" class="INDhiddenText" bis_skin_checked="1" role="alert">שִׂים
+ לֵב: בְּאֲתָר זֶה מֻפְעֶלֶת מַעֲרֶכֶת נָגִישׁ בִּקְלִיק הַמְּסַיַּעַת 
+לִנְגִישׁוּת הָאֲתָר. לְחַץ Control-F11 לְהַתְאָמַת הָאֲתָר לְעִוְורִים 
+הַמִּשְׁתַּמְּשִׁים בְּתוֹכְנַת קוֹרֵא־מָסָךְ; לְחַץ Control-F10 
+לִפְתִיחַת תַּפְרִיט נְגִישׁוּת.</div><div id="INDmenu" aria-hidden="true" bis_skin_checked="1"></div><div style="display: none;" id="INDpopup" aria-hidden="true" bis_skin_checked="1"><div role="dialog" aria-modal="true" aria-labelledby="INDpopupHead" tabindex="0" bis_skin_checked="1"><div id="INDpopupHead" role="heading" aria-level="2" tabindex="0" bis_skin_checked="1">Popup heading</div><div id="INDContent" class="INDpopupContent" bis_skin_checked="1"></div><button id="INDCloseBtn" class="INDpopupConfirm" tabindex="0">Close</button></div></div><div id="INDdata" style="display: none;" bis_skin_checked="1"></div><div id="INDbtnWrap" bis_skin_checked="1"><button id="INDmenu-btn" aria-expanded="false" aria-haspopup="true" accesskey="m" data-drag-content="
+כַּפְתּוֹר נְגִישׁוּת" class="INDcircle-btn" style="top: 0px; --indscale: 0.5; --indmaincolor: #F3F3F3; --indsecondcolor: #226ADE;" data-inddrag="true">
+				<svg id="INDmenu-btn-moveArrow" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="52px" height="52px" viewBox="0 0 52 52" xml:space="preserve">
+					<path fill="#010101" d="M25.904,13.439c-0.189,0.022-0.364,0.109-0.498,0.244l-3.352,3.352c-0.346,0.307-0.378,0.836-0.07,1.183
+						c0.307,0.347,0.836,0.378,1.182,0.071c0.027-0.023,0.053-0.049,0.076-0.076l1.92-1.92v6.361C25.156,23.098,25.557,23.51,26,23.51
+						c0.442,0,0.844-0.412,0.838-0.855v-6.361l1.92,1.92c0.305,0.348,0.834,0.385,1.183,0.08s0.384-0.834,0.079-1.182
+						c-0.023-0.027-0.049-0.053-0.075-0.076l-3.351-3.352C26.414,13.502,26.159,13.41,25.904,13.439z M17.525,21.809
+						c-0.189,0.025-0.365,0.114-0.496,0.253l-3.352,3.351c-0.323,0.326-0.323,0.853,0,1.178l3.352,3.353
+						c0.304,0.348,0.833,0.384,1.182,0.079c0.348-0.304,0.385-0.833,0.08-1.182c-0.023-0.026-0.049-0.053-0.075-0.077l-1.921-1.919h6.354
+						c0.443,0.008,0.848-0.395,0.848-0.838c0-0.441-0.404-0.844-0.848-0.838h-6.354l1.921-1.928c0.331-0.324,0.337-0.854,0.015-1.186
+						C18.047,21.867,17.787,21.775,17.525,21.809z M34.283,21.809c-0.462,0.05-0.794,0.463-0.745,0.922
+						c0.02,0.193,0.108,0.373,0.247,0.51l1.919,1.928h-6.354c-0.029,0-0.058,0-0.086,0c-0.439,0.023-0.818,0.443-0.795,0.882
+						c0.022,0.438,0.443,0.816,0.881,0.794h6.354l-1.919,1.919c-0.348,0.309-0.38,0.838-0.073,1.184c0.308,0.347,0.838,0.379,1.184,0.072
+						c0.027-0.025,0.053-0.05,0.075-0.076l3.353-3.353c0.322-0.325,0.322-0.852,0-1.178l-3.353-3.351
+						C34.793,21.875,34.538,21.782,34.283,21.809z M25.992,28.502c-0.442,0.005-0.839,0.413-0.83,0.855v6.353l-1.92-1.919
+						c-0.178-0.187-0.433-0.279-0.689-0.254c-0.46,0.05-0.793,0.463-0.744,0.923c0.021,0.193,0.107,0.372,0.246,0.509l3.352,3.352
+						c0.327,0.327,0.857,0.328,1.186,0.001c0,0,0.001-0.001,0.002-0.001l3.351-3.352c0.347-0.307,0.379-0.836,0.072-1.183
+						s-0.838-0.379-1.184-0.071c-0.027,0.023-0.053,0.049-0.075,0.076l-1.92,1.919v-6.353C26.848,28.91,26.438,28.498,25.992,28.502z"></path>
+				</svg><svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="25.5 0 44 46" xml:space="preserve">
+<path d="M53.538,36.803c-0.776-0.413-1.742-0.119-2.156,0.65l0,0c-1.717,3.191-5.078,5.362-8.956,5.362
+	c-2.809,0-5.338-1.133-7.18-2.974c-1.841-1.84-2.971-4.371-2.971-7.18c0-3.361,1.629-6.331,4.145-8.187
+	c0.707-0.518,0.855-1.512,0.338-2.222c-0.521-0.707-1.516-0.858-2.226-0.334c-3.295,2.417-5.441,6.337-5.438,10.743
+	c0,7.367,5.969,13.335,13.335,13.338c5.087,0,9.516-2.85,11.763-7.038C54.604,38.188,54.314,37.223,53.538,36.803z M44.512,8.809
+	c2.43,0,4.402-1.969,4.402-4.403C48.914,1.966,46.941,0,44.512,0c-2.434,0-4.406,1.966-4.406,4.406
+	C40.105,6.836,42.078,8.806,44.512,8.809z M54.282,27.287c-0.375-0.577-1.01-0.921-1.697-0.921h-6.486v-9.352l2.62,2.619
+	c0.309,0.307,0.732,0.486,1.171,0.486h6.482c0.909,0,1.647-0.742,1.647-1.654c0-0.909-0.738-1.651-1.647-1.651h-5.801l-4.978-4.974
+	c-0.637-1.083-1.814-1.812-3.165-1.812c-2.026,0-3.667,1.641-3.667,3.667v13.098c0,2.029,1.638,3.674,3.667,3.674
+	c0.233,0,0.458-0.025,0.679-0.066c0.019,0,0.037,0.004,0.057,0.004h8.322l6.252,9.717c0.386,0.604,1.035,0.928,1.698,0.928
+	c0.376,0,0.758-0.107,1.092-0.321c0.935-0.606,1.206-1.853,0.604-2.794L54.282,27.287z M63.444,15.064
+	c-0.395-0.186-0.867-0.016-1.057,0.379l-3.333,7.123h-9.531c-0.436,0-0.796,0.357-0.796,0.799s0.357,0.798,0.796,0.798H59.56
+	c0.31,0,0.59-0.177,0.723-0.461l3.548-7.587C64.016,15.721,63.839,15.247,63.444,15.064z"></path>
+</svg>
+<span class="INDhiddenText">נגישות</span></button></div><div id="INDquickAccess" bis_skin_checked="1"><ul><li><button accesskey="b" class="INDshortcutBtn" tabindex="1">לְחַץ אֶנְטֵר לְהַתְאָמַת הָאֲתָר לְעִוְורִים<span class="INDhiddenText"> הַמִּשְׁתַּמְּשִׁים בְּתוֹכְנַת קוֹרֵא־מָסָךְ.</span></button></li><li><button accesskey="l" tabindex="1">לְחַץ אֶנְטֵר לְנִוּוּט מִקְלֶדֶת</button></li><li><button tabindex="1">לְחַץ אֶנְטֵר לִפְּתִיחַת תַּפְרִיט נְגִישׁוּת.</button></li></ul></div></div>
+
+	<script type="text/javascript" src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/newPostVar.js"></script>
+<script type="text/javascript">
+	function MM_preloadImages() { //v3.0
+	  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+	    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+	    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+	}
+	function MM_swapImgRestore() { //v3.0
+	  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+	}
+	function MM_findObj(n, d) { //v4.01
+	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+	    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+	  if(!x && d.getElementById) x=d.getElementById(n); return x;
+	}	
+	function MM_swapImage() { //v3.0
+	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+	}	
+
+	function isMobile() 
+	{
+		if( navigator.userAgent.match(/Android/i)
+		 || navigator.userAgent.match(/webOS/i)
+		 || navigator.userAgent.match(/iPhone/i)
+		 || navigator.userAgent.match(/iPad/i)
+		 || navigator.userAgent.match(/iPod/i)
+		 || navigator.userAgent.match(/BlackBerry/i)
+		 || navigator.userAgent.match(/Windows Phone/i)
+		 ){
+		    return true;
+		  }
+		 else {
+		    return false;
+		  }
+	}
+</script>
+
+<div id="menuSite" align="center" class="menuHTML" bis_skin_checked="1">
+
+		<table style="width:100%;background-repeat:repeat-x; background-image:url('/images/mainheader_bg.png');" cellpadding="0" cellspacing="0" dir="rtl">
+			<tbody><tr>
+			
+				<td width="35%" style="padding-left:45px" align="left"> 
+				  <a href="http://play.mikmak.co.il/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btnh0','','/images/play2_h.png',1)" bis_skin_checked="1">
+				     <img id="btnh0" src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/play2.png" width="205" height="62" alt="התחל לשחק" style="padding-bottom:3px">
+				  </a>				
+				</td>
+
+				 <td align="center" width="35%"> 
+
+					   <table width="100%" align="center" style="padding-bottom:30px" cellpadding="2">
+					     <tbody><tr>
+					       <td width="120">
+							  <div style="width:11px; height:11px; position:relative; top:2px; right:37px;" bis_skin_checked="1">
+							    <img id="saleNotification" style="display:none;" src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/notificationSmall.png" width="11" height="11">
+							  </div>
+							  <div style="position:relative; bottom:5px;" bis_skin_checked="1">
+								  <a id="headerStore" href="https://www.mikmak.co.il/store/" class="mainHeader" bis_skin_checked="1">חנות</a>
+							  </div>	  							  
+					       </td>
+					       <td width="160" style="min-width:70px;">
+							  <div style="width:11px; height:11px; position:relative; top:2px; right:67px;" bis_skin_checked="1">
+							    <img id="blogNotification" style="display:none;" src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/notificationSmall.png" width="11" height="11">
+							  </div>
+							  <div style="position:relative; bottom:5px;" bis_skin_checked="1">
+								  <a id="headerBlog" href="https://www.mikmak.co.il/html/whatsnew.html" class="mainHeader" bis_skin_checked="1">מה חדש</a>
+							  </div>	  
+					       </td>
+					       <td width="145">
+							  <a id="headerGallery" href="https://www.mikmak.co.il/html/gallery.html" class="mainHeader" bis_skin_checked="1">קהילה</a>
+					       </td>
+					       <td width="160">
+							  <a id="headerApps" href="https://www.mikmak.co.il/apps/" class="mainHeader" bis_skin_checked="1">אפליקציות</a>
+					       </td>
+					       <td width="140">
+							  <a id="headerMembers" href="https://www.mikmak.co.il/servlet/productList?ctg=2&amp;src=site_headerS" class="mainHeader" bis_skin_checked="1">מנויים</a>
+					       </td>
+					       <td width="140">
+							  <a id="headerParents" href="https://www.mikmak.co.il/html/parents/" class="mainHeader" bis_skin_checked="1">הורים</a>
+					       </td>
+					       <td width="150">
+							  <a id="headerHelp" href="https://www.mikmak.co.il/html/help/faq.html" class="mainHeader" bis_skin_checked="1">
+							   עזרה
+							  </a>
+					       </td>
+				        </tr>
+				   </tbody></table>
+				 </td>
+
+				<td width="30%" align="right" style="padding-right:10px;">
+				  <a href="https://www.mikmak.co.il/" bis_skin_checked="1">
+				   <img id="btnh7" src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/logo2.png" width="260" height="130" alt="מיקמק">
+				  </a>
+				</td>
+    	  </tr>
+    	 </tbody></table> 
+	</div>
+
+
+<script>	
+  if (saleday || newPost)
+  {
+     if (saleday)
+       document.getElementById("saleNotification").style.display='';
+     if (newPost)
+       document.getElementById("blogNotification").style.display='';
+  }
+
+</script><div id="sub_menu" class="sub_menu" bis_skin_checked="1">
+	        
+	          <a id="subheaderRecover" href="https://www.mikmak.co.il/jsp/users/recoverPWD.jsp" class="sub_menu_link" bis_skin_checked="1">
+	          <span>שכחתי סיסמה</span></a> <span class="del">|</span>
+
+	          <a id="subheaderAccount" href="https://www.mikmak.co.il/jsp/users/login.jsp" class="subMenuLink subMenuHover" bis_skin_checked="1">
+	          <span>החשבון שלי</span></a> <span class="del">|</span>
+
+	          <a id="subheaderFAQ" href="https://www.mikmak.co.il/html/help/faq.html" class="sub_menu_link" bis_skin_checked="1">
+	          <span>שאלות ותשובות</span></a> <span class="del">|</span>
+	            
+	          <a id="subheaderCustomer" href="https://www.mikmak.co.il/html/contact.html" class="sub_menu_link" bis_skin_checked="1">
+	          <span>שירות לקוחות</span></a> 
+	            
+	</div>	<table border="0" align="center" cellpadding="0" cellspacing="0" class="tb_center">
+  <tbody><tr>
+    <td align="right">
+    
+<form id="frmLogin" name="frmLogin" onsubmit="validate();return false;" action="/servlet/com.dic.vw.users.site.servletLogin" method="post">
+   <input type="hidden" name="cToken" value="6FD34829E2564D739441965D612FF2CA7E39E46066850526B07BFCEE901B6E17">
+     <span class="page_title">ניהול חשבון </span>
+     
+    <table border="0" cellpadding="0" cellspacing="0" class="td_title">
+  <tbody><tr>
+    <td align="center" valign="top"><br>
+
+		
+		<p></p>
+    <table width="100" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td align="center" valign="top">&nbsp;</td>
+        <td align="center" valign="top"><table width="400" border="0" cellpadding="0" cellspacing="0" class="acount_box">
+          <tbody><tr>
+            <td align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tbody><tr>
+                <td align="right" style="height: 20px"><label for="textfield"></label>
+                  <input type="text" class="acount_login_text_field" autocomplete="new-password" id="userName" name="userName" style="width:120px" maxlength="10" dir="rtl"></td>
+                <td align="right" valign="middle" class="acount_form_title" style="height: 20px">שם 
+				מיקמק</td>
+              </tr>
+              <tr class="acount_box_line">
+                <td colspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td align="right"><input class="acount_login_text_field" dir="rtl" type="password" autocomplete="new-password" style="width:120px" id="pwd" name="pwd" maxlength="10"></td>
+                <td align="right" valign="middle" class="acount_form_title">סיסמה</td>
+              </tr>
+              <tr class="acount_box_line">
+                <td colspan="2">&nbsp;</td>
+              </tr>
+              <tr>
+                <td><a href="https://www.mikmak.co.il/jsp/parents/login.jsp?menu=parents" class="acount_login_link" bis_skin_checked="1"> כניסת הורים</a> | <a href="https://www.mikmak.co.il/jsp/users/recoverPWD.jsp" class="acount_login_link" bis_skin_checked="1">שכחתי סיסמה </a></td>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody></table></td>
+          </tr>
+        </tbody></table></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center" valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="66" colspan="2" align="center" valign="top"><a href="javascript:validate();" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','/images/btn_send_form_h.gif',1)" bis_skin_checked="1"><img src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/btn_send_form.gif" name="Image1" width="96" height="33" border="0" id="Image1"></a></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center" valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center" valign="top"><img src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/login_intro.gif" width="269" height="259"></td>
+      </tr>
+      </tbody></table>
+    <p>&nbsp;</p></td>
+  </tr>
+</tbody></table>
+
+ 
+ 	
+</form>    
+
+
+	
+    </td>
+  </tr>
+</tbody></table>
+	<table border="0" align="center" cellpadding="0" cellspacing="0" class="tb_footer">
+  <tbody><tr>
+    <td></td>
+  </tr>
+</tbody></table>
+<table border="0" align="center" cellpadding="0" cellspacing="0" class="tb_footer_links">
+  <tbody><tr>
+    <td align="center">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+          <td valign="middle" class="footer_btn_4"><a href="https://www.mikmak.co.il/html/about.html" class="footer_link" bis_skin_checked="1">אודות החברה&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></td>
+          <td width="4"></td>
+          <td valign="middle" class="footer_btn_5"><a href="https://www.mikmak.co.il/html/nagich.html" class="footer_link" bis_skin_checked="1">נגישות</a></td>
+          <td width="4"></td>
+          <td valign="middle" class="footer_btn_3"><a href="https://www.mikmak.co.il/html/privacy.html" class="footer_link" bis_skin_checked="1">מדיניות פרטיות</a></td>
+          <td width="4"></td>
+          <td valign="middle" class="footer_btn_2"><a href="https://www.mikmak.co.il/html/terms.html" class="footer_link" bis_skin_checked="1">תנאי שימוש</a></td>
+          <td width="4"></td>
+          <td valign="middle" class="footer_btn_1"><a href="https://www.mikmak.co.il/html/contact.html" class="footer_link" bis_skin_checked="1">צור קשר</a></td>          
+        </tr>
+        
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+
+<script type="text/javascript">
+
+
+	   document.getElementById("subheaderAccount").className= "subMenuLink subMenuHover";
+
+
+	if (isMobile())
+	{		
+	        
+	}
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11123125-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script type="text/javascript" src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/nagich.js"></script><script src="%D7%9E%D7%99%D7%A7%D7%9E%D7%A7%20-%20%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%97%D7%A9%D7%91%D7%95%D7%9F_files/accessibility.js" defer="defer" integrity="sha512-3lGJBcuai1J0rGJHJj4e4lYOzm7K08oEHsg1Llt7x24OOsa/Ca0wwbSi9HhWUn92FKN3fylaq9xmIKVZnUsT3Q==" crossorigin="anonymous" data-cfasync="true"></script>
+
+<iframe title="IND - Default Props" id="INDdefaultPropIframe" style="display: none;"></iframe></body></html>

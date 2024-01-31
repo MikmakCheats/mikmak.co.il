@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+/* blocks */
+.acount_box {
+	background-color:#C8E3F5;
+	
+<!--[if gt IE6]> -->
+    	background-image:url('/images/member_box_tl.gif'), url('/images/member_box_tr.gif'), url('/images/member_box_bl.gif'), url('/images/member_box_br.gif'), url('/images/member_box_b.gif');
+	background-position:top left, top right, bottom left, bottom right, bottom;
+	background-repeat:no-repeat, no-repeat, no-repeat, no-repeat, repeat-x;
+	padding:10px;
+<!-- <![endif]-->	
+}
+.acount_box_line {
+	background:url('/images/member_box_line.gif') no-repeat right top;
+	height:3px;
+}
+#member_icon {
+	position:absolute;
+	float:right;
+	text-align:center;
+	width:800px;
+	margin-left:500px;
+}
+/* text */
+.acount_form_title {
+	color:#0F1F51;
+	font-size:14px;
+	font-weight:bold;
+}
+.acount_form_text {
+	color:#0F1F51;
+	font-size:14px;
+}
+.acount_login_link {
+	color:#57748E;
+	font-size:12px;
+	text-decoration:none;
+}
+.acount_login_link:hover {
+	text-decoration:underline
+}
+/* forms */
+.acount_login_text_field {
+	border:1px solid #0F1F51;
+	height:20px;
+	width:150px;	
+}
+.acount_text_area {
+	border:1px solid #0F1F51;
+	width:220px;	
+}
