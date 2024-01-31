@@ -1,0 +1,56 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* text */
+
+.side_block_link {
+	font-size:12px;
+	color:#FFF;
+	text-decoration:none;
+		
+}
+
+.side_block_link:hover {
+	color:#FC0;	
+}
+
+
+.faq_index_title {
+	color:#036;
+	font-size:16px;
+	font-weight:bold;
+}
+
+.faq_index_link {
+	color:#FFF;
+	text-decoration:none;
+	font-size:13px;	
+}
+
+.faq_index_link:hover {
+	color:#FC0;	
+	
+}
+
+.faq_sub_title {
+	color:#036;
+	font-size:14px;
+	font-weight:bold;	
+}
+
+/* blocks */
+
+.faq_box_top {
+	background:url(/images/faq_box_top.gif) top no-repeat;
+
+	width:711px;
+	padding-right:15px;
+	padding-top:12px;
+	padding-bottom:8px;
+}
+
+.faq_box_bottom {
+	background:url(/images/faq_box_bottom.gif) bottom no-repeat;
+	width:711px;
+	height:4px;
+}
